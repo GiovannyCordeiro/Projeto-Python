@@ -21,7 +21,7 @@ Vale observar que certos itens no desenvolvimento de um TCC são obrigatórios p
 
 Exemplos de itens obrigatórios: Capa, Folha de rosto, Folha de aprovação, Resumo na língua vernácula, resumo em língua estrangeira, sumário, introdução, desenvolvimento, conclusão, referências.
 
-Exemplos de itens opcionais: Lombada, errata, dedicatória, dedicatória, agradecimentos, epígrafe, lista de ilustrações, lista de tabelas, lista de abreviaturas e siglas, lista de símbolos, glossário, apêndice, anexo e índice.
+Exemplos de itens opcionais: Lombada, errata, dedicatória, agradecimentos, epígrafe, lista de ilustrações, lista de tabelas, lista de abreviaturas e siglas, lista de símbolos, glossário, apêndice, anexo e índice.
 
 ## Características de TCC
 Além da estrutura antes posta que o TCC possui, ele detém características especificas para sua fundamentação e diferenciação, as principais são:
