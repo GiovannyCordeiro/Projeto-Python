@@ -48,3 +48,10 @@ while True:
             for elemento in lista_receita:
                 acomulador += elemento['valor']
             print(f"O valor total da sua lista de receitas é: {acomulador}")
+
+    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou "N" para encerrar a sessão:\n ')
+    if acesso == 'S':
+        continue
+    else:
+        print('Obrigado por acessar o nosso sistema. Aguardamos o seu retorno em breve.😁')
+        break
