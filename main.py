@@ -35,22 +35,36 @@ while True:
             }
             lista_receita.append(elemento_receita)
         case 3:
-            print(lista_despesas)
+            iterator = 0
+            print("Lista das suas despesas: ")
+            for item in lista_despesas:
+                print(f"{iterator + 1} - Titulo:{item['título']} - Valor: {item['valor']} - Data: {item['data']}")
+                iterator += 1
         case 4:
-            print(lista_receita)
+            print("Lista das suas receitas: ")
+            iterador = 0
+            if len(lista_receita) == 0:
+                print("Você ainda cadastrou nenhuma receita.")
+            else:
+                for item in lista_receita:
+                    print(f"{iterator + 1} - Titulo: {item['Origem da Receita']} - Valor: {item['Valor da Receita']} - Data: {item['Data']}")
+                    iterator += 1
         case 5: 
-            acomulador = 0
-            for elemento in lista_despesas: 
-                acomulador += elemento['valor']
-            print(f"O valor total da sua lista de despesas é: {acomulador}")
+            iterador = 0
+            if len(lista_despesas) == 0:
+                print("Você ainda cadastrou nenhuma despesa.")
+            else: 
+                for elemento in lista_despesas: 
+                    iterador += elemento['valor']
+                print(f"O valor total da sua lista de despesas é: {iterador}")
         case 6:
             acomulador = 0
             for elemento in lista_receita:
                 acomulador += elemento['valor']
             print(f"O valor total da sua lista de receitas é: {acomulador}")
 
-    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou "N" para encerrar a sessão:\n ')
-    if acesso == 'S':
+    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou "N" para encerrar a sessão:\n')
+    if acesso == 'S' or acesso == 's':
         continue
     else:
         print('Obrigado por acessar o nosso sistema. Aguardamos o seu retorno em breve.😁')
