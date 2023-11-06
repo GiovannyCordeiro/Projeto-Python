@@ -62,7 +62,7 @@ while True:
 
     
     
-    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou "N" para encerrar a sessão:\n ')
+    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou digite "9" para encerrar a sessão:\n ')
     if acesso == 'S':
         continue
     else:
