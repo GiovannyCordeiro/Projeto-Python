@@ -49,7 +49,20 @@ while True:
                 acomulador += elemento['valor']
             print(f"O valor total da sua lista de receitas é: {acomulador}")
 
-    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou "N" para encerrar a sessão:\n ')
+        case 7:
+            excluir_despesa = int(input(f'Digite o item da lista de despesas {lista_despesas} que você deseja deletar: '))
+            del lista_despesas[excluir_despesa]
+        case 8:
+            excluir_receita = int(input(f'Digite o item da lista de receitas {lista_receita} que você deseja deletar: '))
+            del lista_receita[excluir_receita]
+        case 9:
+            print('Obrigado por acessar o nosso sistema. Aguardamos o seu retorno em breve.😁')
+            break
+
+
+    
+    
+    acesso = input('Deseja continuar acessando o menu de interação? \nDigite "S" para sim ou digite "9" para encerrar a sessão:\n ')
     if acesso == 'S':
         continue
     else:
