@@ -62,8 +62,17 @@ while True:
                 acomulador += elemento['valor']
             print(f"O valor total da sua lista de receitas é: {acomulador}")
         case 7:
-            excluir_despesa = int(input(f'Digite o item da lista de despesas {lista_despesas} que você deseja deletar: '))
-            del lista_despesas[excluir_despesa]
+            excluir_despesa = int(input(f'Digite o item da lista de despesas {lista_despesas} que você deseja deletar: ')) - 1
+            with open('lista_despesas.txt') as arquivo:
+                linhas = arquivo.readlines()
+                print("1:", linhas)
+                del linhas[excluir_despesa]
+                print("2:", linhas)
+            with open('lista_despesas.txt', 'w') as arquivo:
+                for despesas in linhas:
+                    titulo_despesa, valor_despesa, data_despesa = despesas.split("||")
+                    arquivo.write(f"{titulo_despesa}||{valor_despesa}||{data_despesa}")
+            
         case 8:
             excluir_receita = int(input(f'Digite o item da lista de receitas {lista_receita} que você deseja deletar: '))
             del lista_receita[excluir_receita]
