@@ -65,9 +65,7 @@ while True:
             excluir_despesa = int(input(f'Digite o item da lista de despesas {lista_despesas} que você deseja deletar: ')) - 1
             with open('lista_despesas.txt') as arquivo:
                 linhas = arquivo.readlines()
-                print("1:", linhas)
                 del linhas[excluir_despesa]
-                print("2:", linhas)
             with open('lista_despesas.txt', 'w') as arquivo:
                 for despesas in linhas:
                     titulo_despesa, valor_despesa, data_despesa = despesas.split("||")
