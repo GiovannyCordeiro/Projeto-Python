@@ -24,14 +24,9 @@ while True:
             origem_receita = (input('Informe a origem da sua receita: '))
             valor = float(input('Informe o valor da sua receita : '))
             data = input('Informe a data de pagamento. Ex.:12/12/2012: \n')
-            elemento_receita = {
-                'Origem da Receita': origem_receita,
-                'Valor da Receita': valor,
-                'Data': data
-            }
-            lista_receita.append(elemento_receita)
+            with open('lista_receitas.txt', 'a') as arquivo:
+                arquivo.write(f"{origem_receita}||{valor}||{data}\n")
         case 3:
-            iterator = 0
             print("Lista das suas despesas: ")
             with open('lista_despesas.txt', 'r') as arquivo:
                 index = 0
@@ -41,13 +36,13 @@ while True:
                     index += 1
         case 4:
             print("Lista das suas receitas: ")
-            iterador = 0
-            if len(lista_receita) == 0:
-                print("Você ainda cadastrou nenhuma receita.")
-            else:
-                for item in lista_receita:
-                    print(f"{iterator + 1} - Titulo: {item['Origem da Receita']} - Valor: {item['Valor da Receita']} - Data: {item['Data']}")
-                    iterator += 1
+            iterator = 0
+            with open('lista_receitas.txt', 'r') as arquivo:
+                index = 0
+                for linha in arquivo:
+                    titulo_receita, valor_receita, data_receita = linha.split("||")
+                    print(f"{index + 1} - {titulo_receita} - {valor_receita} - {data_receita}")
+                    index += 1
         case 5: 
             iterador = 0
             if len(lista_despesas) == 0:
@@ -58,9 +53,12 @@ while True:
                 print(f"O valor total da sua lista de despesas é: {iterador}")
         case 6:
             acomulador = 0
-            for elemento in lista_receita:
-                acomulador += elemento['valor']
-            print(f"O valor total da sua lista de receitas é: {acomulador}")
+            with open('lista_receitas.txt', 'r') as arquivo: 
+                lista_receita = arquivo.readlines()
+                for receita in lista_receita:
+                    titulo_receita, valor_receita, data_receita = receita.split("||")
+                    acomulador += float(valor_receita)
+            print(f"O valor total da sua lista de receitas é: {acomulador}\n")
         case 7:
             excluir_despesa = int(input(f'Digite o item da lista de despesas {lista_despesas} que você deseja deletar: ')) - 1
             with open('lista_despesas.txt') as arquivo:
@@ -72,8 +70,14 @@ while True:
                     arquivo.write(f"{titulo_despesa}||{valor_despesa}||{data_despesa}")
             
         case 8:
-            excluir_receita = int(input(f'Digite o item da lista de receitas {lista_receita} que você deseja deletar: '))
-            del lista_receita[excluir_receita]
+            excluir_receita = int(input(f'Digite o item da lista de receitas {lista_receita} que você deseja deletar: ')) - 1
+            with open('lista_receitas.txt') as arquivo:
+                linhas = arquivo.readlines()
+                del linhas[excluir_receita]
+            with open('lista_receitas.txt', 'w') as arquivo:
+                for receita in linhas:
+                    titulo_receita, valor_receita, data_receita = receita.split("||")
+                    arquivo.write(f"{titulo_receita}||{valor_receita}||{data_receita}")
         case 9:
             print('Obrigado por acessar o nosso sistema. Aguardamos o seu retorno em breve.😁')
             break
