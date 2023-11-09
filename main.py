@@ -44,13 +44,13 @@ while True:
                     print(f"{index + 1} - {titulo_receita} - {valor_receita} - {data_receita}")
                     index += 1
         case 5: 
-            iterador = 0
-            if len(lista_despesas) == 0:
-                print("Você ainda cadastrou nenhuma despesa.")
-            else: 
-                for elemento in lista_despesas: 
-                    iterador += elemento['valor']
-                print(f"O valor total da sua lista de despesas é: {iterador}")
+            acomulador = 0
+            with open('lista_despesas.txt', 'r') as arquivo:
+                lista_despesas = arquivo.readlines()
+                for despesa in lista_despesas:
+                    titulo_despesa, valor_despesa, data_despesa = despesa.split("||")
+                    acomulador += float(valor_despesa)
+            print(f"O valor total da sua lista de despesas é: {acomulador}")
         case 6:
             acomulador = 0
             with open('lista_receitas.txt', 'r') as arquivo: 
