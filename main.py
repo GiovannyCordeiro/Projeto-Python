@@ -1,6 +1,3 @@
-lista_despesas = []
-lista_receita = []
-
 while True:
     print('\nMENU\n'
           '\n1. Cadastrar Despesa\n'
