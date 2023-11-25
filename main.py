@@ -2,15 +2,15 @@ from logicas.arquivo import listar_dados, itens_total, valor_total, excluir_desp
 
 while True:
     print('\nMENU\n'
-          '\n1. Cadastrar Despesa\n'
-          '\n2. Cadastrar Receita\n'
-          '\n3. Listar Despesas\n'
-          '\n4. Listar Receitas\n'
-          '\n5. Valor Total das Despesas\n'
-          '\n6. Valor Total das Receitas\n'
-          '\n7. Exclusão de Despesa\n'
-          '\n8. Exclusão de Receita\n'
-          '\n9. Sair do Programa\n')
+            '\n1. Cadastrar Despesa\n'
+            '\n2. Cadastrar Receita\n'
+            '\n3. Listar Despesas\n'
+            '\n4. Listar Receitas\n'
+            '\n5. Valor Total das Despesas\n'
+            '\n6. Valor Total das Receitas\n'
+            '\n7. Exclusão de Despesa\n'
+            '\n8. Exclusão de Receita\n'
+            '\n9. Sair do Programa\n')
     menu = int(input('Escolha uma opção do menu. Ex.:1: \n'))
     match menu:
         case 1:
