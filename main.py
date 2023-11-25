@@ -1,3 +1,5 @@
+from logicas.arquivo import listar_dados, itens_total, valor_total, excluir_despesas_receitas
+
 while True:
     print('\nMENU\n'
           '\n1. Cadastrar Despesa\n'
@@ -12,69 +14,33 @@ while True:
     menu = int(input('Escolha uma opção do menu. Ex.:1: \n'))
     match menu:
         case 1:
-            título_despesa = input('Informe a origem da despesa:')
+            titulo_despesa = input('Informe a origem da despesa:')
             valor_despesa = float(input('Informe o valor da sua despesa: '))
             data_despesa = input('Informe a data de pagamento. Ex.:12/12/2012: \n')
-            with open('lista_despesas.txt', 'a') as arquivo:
-                arquivo.write(f"{título_despesa}||{valor_despesa}||{data_despesa}\n")
+            listar_dados("lista_despesas.txt",titulo_despesa, valor_despesa, data_despesa)
         case 2:
             origem_receita = (input('Informe a origem da sua receita: '))
             valor = float(input('Informe o valor da sua receita : '))
             data = input('Informe a data de pagamento. Ex.:12/12/2012: \n')
-            with open('lista_receitas.txt', 'a') as arquivo:
-                arquivo.write(f"{origem_receita}||{valor}||{data}\n")
+            listar_dados("lista_receitas.txt", origem_receita, valor, data)
         case 3:
             print("Lista das suas despesas: ")
-            with open('lista_despesas.txt', 'r') as arquivo:
-                index = 0
-                for linha in arquivo:
-                    titulo_despesa, valor_despesa, data_despesa = linha.split("||")
-                    print(f"{index + 1} - {titulo_despesa} - {valor_despesa} - {data_despesa}")
-                    index += 1
+            itens_total("lista_despesas.txt")
         case 4:
             print("Lista das suas receitas: ")
-            iterator = 0
-            with open('lista_receitas.txt', 'r') as arquivo:
-                index = 0
-                for linha in arquivo:
-                    titulo_receita, valor_receita, data_receita = linha.split("||")
-                    print(f"{index + 1} - {titulo_receita} - {valor_receita} - {data_receita}")
-                    index += 1
+            itens_total("lista_receitas.txt")
         case 5: 
-            acomulador = 0
-            with open('lista_despesas.txt', 'r') as arquivo:
-                lista_despesas = arquivo.readlines()
-                for despesa in lista_despesas:
-                    titulo_despesa, valor_despesa, data_despesa = despesa.split("||")
-                    acomulador += float(valor_despesa)
+            acomulador = valor_total("lista_despesas.txt")
             print(f"O valor total da sua lista de despesas é: {acomulador}")
         case 6:
-            acomulador = 0
-            with open('lista_receitas.txt', 'r') as arquivo: 
-                lista_receita = arquivo.readlines()
-                for receita in lista_receita:
-                    titulo_receita, valor_receita, data_receita = receita.split("||")
-                    acomulador += float(valor_receita)
+            acomulador = valor_total("lista_receitas.txt")
             print(f"O valor total da sua lista de receitas é: {acomulador}\n")
         case 7:
-            excluir_despesa = int(input(f'Digite o item da lista de despesas {lista_despesas} que você deseja deletar: ')) - 1
-            with open('lista_despesas.txt') as arquivo:
-                linhas = arquivo.readlines()
-                del linhas[excluir_despesa]
-            with open('lista_despesas.txt', 'w') as arquivo:
-                for despesas in linhas:
-                    titulo_despesa, valor_despesa, data_despesa = despesas.split("||")
-                    arquivo.write(f"{titulo_despesa}||{valor_despesa}||{data_despesa}")
-            
+            item_excluido = int(input(f'Digite o número referente ao item que deseja excluir na lista "Despesas": ')) - 1
+            excluir_despesas_receitas(item_excluido, "lista_despesas.txt")
         case 8:
-            excluir_receita = int(input(f'Digite o item da lista de receitas {lista_receita} que você deseja deletar: ')) - 1
-            with open('lista_receitas.txt') as arquivo:
-                linhas = arquivo.readlines()
-                del linhas[excluir_receita]
-            with open('lista_receitas.txt', 'w') as arquivo:
-                for receita in linhas:
-                    titulo_receita, valor_receita, data_receita = receita.split("||")
-                    arquivo.write(f"{titulo_receita}||{valor_receita}||{data_receita}")
+            item_excluido = int(input(f'Digite o número referente ao item que deseja excluir na lista "Receitas": ')) - 1
+            excluir_despesas_receitas(item_excluido, "lista_receitas.txt")
         case 9:
             print('Obrigado por acessar o nosso sistema. Aguardamos o seu retorno em breve.😁')
             break
