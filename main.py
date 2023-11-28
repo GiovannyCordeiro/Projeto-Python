@@ -1,4 +1,4 @@
-from logicas.arquivo import listar_dados, itens_total, valor_total, excluir_despesas_receitas
+from logicas.arquivo import cadastrar_dados, itens_total, valor_total, excluir_despesas_receitas
 
 while True:
     print('\nMENU\n'
@@ -17,12 +17,12 @@ while True:
             titulo_despesa = input('Informe a origem da despesa:')
             valor_despesa = float(input('Informe o valor da sua despesa: '))
             data_despesa = input('Informe a data de pagamento. Ex.:12/12/2012: \n')
-            listar_dados("lista_despesas.txt",titulo_despesa, valor_despesa, data_despesa)
+            cadastrar_dados("lista_despesas.txt",titulo_despesa, valor_despesa, data_despesa)
         case 2:
             origem_receita = (input('Informe a origem da sua receita: '))
             valor = float(input('Informe o valor da sua receita : '))
             data = input('Informe a data de pagamento. Ex.:12/12/2012: \n')
-            listar_dados("lista_receitas.txt", origem_receita, valor, data)
+            cadastrar_dados("lista_receitas.txt", origem_receita, valor, data)
         case 3:
             print("Lista das suas despesas: ")
             itens_total("lista_despesas.txt")
