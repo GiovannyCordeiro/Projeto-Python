@@ -1,7 +1,8 @@
 from logicas.arquivo import cadastrar_dados, itens_total, valor_total, excluir_despesas_receitas
 
 while True:
-    print('\nMENU\n'
+    print('\nBem vindo ao seu gerenciador Financeiro!s\n'
+            '\nMENU\n'
             '\n1. Cadastrar Despesa\n'
             '\n2. Cadastrar Receita\n'
             '\n3. Listar Despesas\n'
